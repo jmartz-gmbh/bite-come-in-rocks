@@ -4,6 +4,8 @@
       <header-general></header-general>
     </header>
     <main class="mx-auto max-w-5xl bg-white px-2 py-2 mt-2 min-h-screen">
+      <breadcrumb></breadcrumb>
+      <messages></messages>
       <router-view></router-view>
     </main>
     <footer class="mx-auto max-w-5xl px-2 py-2 mt-2">
@@ -14,25 +16,29 @@
 <script>
 import header from "./components/header.vue";
 import footer from "./components/footer.vue";
+import messages from "./components/messages.vue";
+import breadcrumb from "./components/breadcrumb.vue";
 
 import "./tailwind.css";
 export default {
   name: "App",
   components: {
     "header-general": header,
+    "messages": messages,
+    "breadcrumb": breadcrumb,
     "footer-general": footer,
   },
   watch: {
-    $route: function(){
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-  }
+    $route: function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+  },
 };
 </script>
 
 <style lang="less">
 .app {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e);
+  background: linear-gradient(-45deg, black, red);
   background-size: auto;
 }
 </style>
