@@ -25,9 +25,9 @@
         <hr class="mt-5 mb-5" />
       </div>
     </div>
-    <div class="grid grid-cols-5">
-      <div class="col-span-6"><h2>Team:</h2></div>
-      <div class="col-span-3 md:col-span-1 text-center">
+    <div class="grid grid-cols-8">
+      <div class="col-span-8"><h2>Team:</h2></div>
+      <div class="col-span-4 md:col-span-2 text-center">
         <div class="card bg-white px-2 py-2">
           <img
             src="https://avatars.githubusercontent.com/u/20771653?v=4"
@@ -40,7 +40,7 @@
           </p>
         </div>
       </div>
-      <div class="col-span-3 md:col-span-1 text-center">
+      <div class="col-span-4 md:col-span-2 text-center">
         <div class="card bg-white px-2 py-2">
           <img
             src="https://avatars.githubusercontent.com/u/20771653?v=4"
@@ -53,7 +53,7 @@
           </p>
         </div>
       </div>
-      <div class="col-span-3 md:col-span-1 text-center">
+      <div class="col-span-4 md:col-span-2 text-center">
         <div class="card bg-white px-2 py-2">
           <img
             src="https://avatars.githubusercontent.com/u/20771653?v=4"
@@ -66,20 +66,7 @@
           </p>
         </div>
       </div>
-      <div class="col-span-3 md:col-span-1 text-center">
-        <div class="card bg-white px-2 py-2">
-          <img
-            src="https://avatars.githubusercontent.com/u/20771653?v=4"
-            alt=""
-            class="w-16 rounded-full mx-auto"
-          />
-          <h2 class="font-bold text-lg">Jonathan Martz</h2>
-          <p class="text-sm">
-            Türsteher Jonathan lässt nur ordentliche Leute rein
-          </p>
-        </div>
-      </div>
-      <div class="col-span-3 md:col-span-1 text-center">
+      <div class="col-span-4 md:col-span-2 text-center">
         <div class="card bg-white px-2 py-2">
           <img
             src="https://avatars.githubusercontent.com/u/20771653?v=4"
