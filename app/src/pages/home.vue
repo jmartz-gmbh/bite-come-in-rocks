@@ -2,11 +2,17 @@
   <div class="vp-home">
     <div class="grid grid-cols-6 gap-2">
       <div class="col-span-6 md:col-span-3 text-center">
-        <h2 class="font-bold text-lg mt-12">Willkommen</h2>
+        <h2 class="font-bold text-lg mt-5">Willkommen</h2>
         <p>
           auf der neuen Webseite des Come In's. <br />
           Hier findest du alle Informationen zu den Getränken, <br />
           unserer Musik und unseren DJ's.
+        </p>
+        <br>
+        <h2 class="font-bold">Öffnungszeiten</h2>
+        <p>
+          <span>Freitag: 18:00 - 4:00</span><br />
+          <span>Samstag: 18:00 - 4:00</span>
         </p>
       </div>
       <div class="col-span-6 md:col-span-3 text-center">
@@ -145,10 +151,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="grid grid-cols-6">
-      <div class="col-span-6 md:col-span-3">Öffnungszeiten</div>
-      <div class="col-span-6 md:col-span-3">Playlist</div>
     </div>
   </div>
 </template>
