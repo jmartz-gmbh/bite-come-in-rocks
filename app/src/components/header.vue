@@ -6,9 +6,12 @@
       ></span
     >
     <nav class="mt-2">
-      <ul class="flex text-white">
+      <ul class="flex text-white space-x-3">
         <li>
           <router-link class="" to="/drinks">Getränke</router-link>
+        </li>
+         <li>
+          <router-link class="" to="/gallery">Galerie</router-link>
         </li>
       </ul>
     </nav>

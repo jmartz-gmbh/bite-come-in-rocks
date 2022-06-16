@@ -21,7 +21,7 @@
               {{ product.attributes.name }}
             </div>
             <div class="col col-span-12 md:col-span-6">
-              {{ product.attributes.price }}
+              {{ product.attributes.price }} €
             </div>
             <div class="col col-span-12">
               {{ product.attributes.desc }}

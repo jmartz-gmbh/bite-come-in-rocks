@@ -79,6 +79,7 @@
           </p>
         </div>
       </div>
+
     </div>
     <div class="grid grid-cols-12 gap-2">
       <div class="col-span-12 md:col-span-5">
@@ -162,10 +163,8 @@ export default {
     };
   },
   mounted() {
-    this.loadFacebookPost();
   },
   methods: {
-    loadFacebookPost: function () {},
     gallery: function () {
       this.$router.push("/gallery");
     },
