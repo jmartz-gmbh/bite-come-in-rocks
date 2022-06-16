@@ -32,6 +32,14 @@ export default {
   },
   mounted() {
     this.load();
+    this.$store.commit("breadcrumb-add", {
+      link: "/gallery",
+      label: "Gallery",
+    });
+    this.$store.commit("breadcrumb-add", {
+      link: "/gallery/category/" + this.$route.params.id,
+      label: "Category",
+    });
   },
   methods: {
     load: function () {

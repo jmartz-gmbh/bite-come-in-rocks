@@ -2,7 +2,9 @@
   <div class="vp-gallery-view">
     <h2 class="font-bold text-xl mb-2 flex justify-between">
       <span> {{ media.alternativeText }}</span>
-      <span class="text-sm text-blue-400 mt-2"><button @click="$router.go(-1)">Zurück zur Gallery</button></span>
+      <span class="text-sm text-blue-400 mt-2"
+        ><button @click="$router.go(-1)">Zurück zur Gallery</button></span
+      >
     </h2>
     <img :src="'https://gallery.come-in.rocks' + media.url" alt="" />
   </div>
@@ -18,6 +20,14 @@ export default {
   },
   mounted() {
     this.load();
+    this.$store.commit("breadcrumb-add", {
+      link: "/gallery",
+      label: "Gallery",
+    });
+    this.$store.commit("breadcrumb-add", {
+      link: "/gallery/view/" + this.$route.params.id,
+      label: "Bild",
+    });
   },
   methods: {
     load: function () {

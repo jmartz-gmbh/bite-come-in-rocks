@@ -43,6 +43,10 @@ export default {
   },
   mounted() {
     this.load();
+    this.$store.commit("breadcrumb-add", {
+      link: "/drinks",
+      label: "Getränke",
+    });
   },
   methods: {
     load: function () {

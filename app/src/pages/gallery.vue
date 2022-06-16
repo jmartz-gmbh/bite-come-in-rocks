@@ -33,6 +33,10 @@ export default {
   },
   mounted() {
     this.load();
+    this.$store.commit("breadcrumb-add", {
+      link: "/gallery",
+      label: "Gallery",
+    });
   },
   methods: {
     load: function () {

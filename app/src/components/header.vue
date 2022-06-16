@@ -10,8 +10,11 @@
         <li>
           <router-link class="" to="/drinks">Getränke</router-link>
         </li>
-         <li>
+        <li>
           <router-link class="" to="/gallery">Galerie</router-link>
+        </li>
+        <li>
+          <router-link class="" to="/events">Events</router-link>
         </li>
       </ul>
     </nav>

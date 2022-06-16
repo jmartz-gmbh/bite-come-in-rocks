@@ -5,8 +5,8 @@
         <h2 class="font-bold text-lg mt-12">Willkommen</h2>
         <p>
           auf der neuen Webseite des Come In's. <br />
-          Hier findest du alle Informationen zu den Getränken <br />
-          m unserer Musik und unseren DJ's.
+          Hier findest du alle Informationen zu den Getränken, <br />
+          unserer Musik und unseren DJ's.
         </p>
       </div>
       <div class="col-span-6 md:col-span-3 text-center">
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="grid grid-cols-8">
-      <div class="col-span-8"><h2>Team:</h2></div>
+      <div class="col-span-8"><h2 class="text-lg font-bold">Team:</h2></div>
       <div class="col-span-4 md:col-span-2 text-center">
         <div class="card bg-white px-2 py-2">
           <img
@@ -79,7 +79,6 @@
           </p>
         </div>
       </div>
-
     </div>
     <div class="grid grid-cols-12 gap-2">
       <div class="col-span-12 md:col-span-5">
@@ -162,8 +161,7 @@ export default {
       posts: [{}],
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     gallery: function () {
       this.$router.push("/gallery");

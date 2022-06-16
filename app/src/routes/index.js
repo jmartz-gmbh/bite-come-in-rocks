@@ -6,10 +6,12 @@ import Gallery from '../pages/gallery.vue';
 import GalleryCategory from '../pages/gallery/category.vue';
 import GalleryView from '../pages/gallery/view.vue';
 import Drinks from '../pages/drinks.vue';
+import Events from '../pages/events.vue';
 
 const routes = [
   { path: '/', component: Home },
   { path: '/impressum', component: Impressum },
+  { path: '/events', component: Events },
   { path: '/gallery', component: Gallery },
   { path: '/gallery/category/:id', component: GalleryCategory},
   { path: '/gallery/view/:id', component: GalleryView},
