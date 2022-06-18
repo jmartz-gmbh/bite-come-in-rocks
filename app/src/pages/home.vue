@@ -8,7 +8,7 @@
           Hier findest du alle Informationen zu den Getränken, <br />
           unserer Musik und unseren DJ's.
         </p>
-        <br>
+        <br />
         <h2 class="font-bold">Öffnungszeiten</h2>
         <p>
           <span>Freitag: 18:00 - 4:00</span><br />
@@ -91,9 +91,10 @@
         <h2 class="text-xl font-bold mb-2">Events</h2>
         <div class="flyer">
           <img
-            src="http://disco-come-in.de/wp-content/uploads/2013/05/IMG-20220518-WA0000-620x924.jpg"
+            :src="images[4]"
             alt=""
           />
+          {{getMediaById(4)}}
         </div>
       </div>
       <div class="col-span-12 md:col-span-7">
@@ -101,51 +102,19 @@
         <div class="images">
           <div class="grid grid-cols-6 gap-2">
             <div class="col-span-6 md:col-span-3">
-              <div class="card px-2 py-2 bg-white border border-black mt-2">
-                <img
-                  src="http://disco-come-in.de/wp-content/gallery/halloween-2019/00000001.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="card px-2 py-2 bg-white border border-black mt-2">
-                <img
-                  src="http://disco-come-in.de/wp-content/gallery/halloween-2019/00000003.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="card px-2 py-2 bg-white border border-black mt-2">
-                <img
-                  src="http://disco-come-in.de/wp-content/gallery/halloween-2019/00000009.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="buttons">
-                <button
-                  @click="gallery()"
-                  class="w-full bg-gray-400 text-white font-bold mt-2 px-2 py-2"
-                >
-                  Zur Bilder Galerie
-                </button>
+              <div
+                v-for="(image, index) in gallery[2]"
+                class="card px-2 py-2 bg-white border border-black mt-2"
+              >
+                <img :src="images[image]" alt="" />
               </div>
             </div>
             <div class="col-span-6 md:col-span-3">
-              <div class="card px-2 py-2 bg-white border border-black mt-2">
-                <img
-                  src="http://disco-come-in.de/wp-content/gallery/halloween-2019/00000002.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="card px-2 py-2 bg-white border border-black mt-2">
-                <img
-                  src="http://disco-come-in.de/wp-content/gallery/halloween-2019/00000004.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="card px-2 py-2 bg-white border border-black mt-2">
-                <img
-                  src="http://disco-come-in.de/wp-content/gallery/halloween-2019/00000006.jpg"
-                  alt=""
-                />
+              <div
+                v-for="(image, index) in gallery[1]"
+                class="card px-2 py-2 bg-white border border-black mt-2"
+              >
+                <img :src="images[image]" alt="" />
               </div>
             </div>
           </div>
@@ -161,12 +130,36 @@ export default {
   data() {
     return {
       posts: [{}],
+      images: [],
+      event: 4,
+      gallery: {
+        1: [1, 2, 3],
+        2: [1, 2, 3],
+      },
     };
   },
-  mounted() {},
+  mounted() {
+    for (let i = 0; i < this.gallery[1].length; i++) {
+      console.log(i);
+      this.getMediaById(this.gallery[1][i]);
+    }
+    for (let i = 0; i < this.gallery[2].length; i++) {
+      this.getMediaById(this.gallery[2][i]);
+    }
+  },
   methods: {
-    gallery: function () {
+    gotoGallery: function () {
       this.$router.push("/gallery");
+    },
+    getMediaById(id) {
+      const that = this;
+      fetch("https://gallery.come-in.rocks/api/upload/files/" + id)
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          that.images[id] = "https://gallery.come-in.rocks" + json.url;
+        });
     },
   },
 };
