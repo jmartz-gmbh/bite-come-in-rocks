@@ -94,7 +94,6 @@
             :src="images[4]"
             alt=""
           />
-          {{getMediaById(4)}}
         </div>
       </div>
       <div class="col-span-12 md:col-span-7">
