@@ -138,6 +138,7 @@ export default {
     };
   },
   mounted() {
+    this.getMediaById(4);
     for (let i = 0; i < this.gallery[1].length; i++) {
       console.log(i);
       this.getMediaById(this.gallery[1][i]);
