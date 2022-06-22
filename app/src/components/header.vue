@@ -14,6 +14,9 @@
           <router-link class="" to="/gallery">Galerie</router-link>
         </li>
         <li>
+          <router-link class="" to="/djs">Dj's</router-link>
+        </li>
+        <li>
           <router-link class="" to="/events">Events</router-link>
         </li>
       </ul>

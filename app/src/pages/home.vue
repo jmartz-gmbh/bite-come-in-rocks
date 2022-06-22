@@ -33,55 +33,19 @@
     </div>
     <div class="grid grid-cols-8">
       <div class="col-span-8"><h2 class="text-lg font-bold">Team:</h2></div>
-      <div class="col-span-4 md:col-span-2 text-center">
+      <div
+        v-for="(member, index) in members"
+        class="col-span-4 md:col-span-2 text-center"
+      >
         <div class="card bg-white px-2 py-2">
           <img
-            src="https://avatars.githubusercontent.com/u/20771653?v=4"
+            :src="'https://members.come-in.rocks' + member.attributes.media.data.attributes.url"
             alt=""
             class="w-16 rounded-full mx-auto"
           />
-          <h2 class="font-bold text-lg">Jonathan Martz</h2>
+          <h2 class="font-bold text-lg">{{ member.attributes.name }}</h2>
           <p class="text-sm">
-            Türsteher Jonathan lässt nur ordentliche Leute rein
-          </p>
-        </div>
-      </div>
-      <div class="col-span-4 md:col-span-2 text-center">
-        <div class="card bg-white px-2 py-2">
-          <img
-            src="https://avatars.githubusercontent.com/u/20771653?v=4"
-            alt=""
-            class="w-16 rounded-full mx-auto"
-          />
-          <h2 class="font-bold text-lg">Jonathan Martz</h2>
-          <p class="text-sm">
-            Türsteher Jonathan lässt nur ordentliche Leute rein
-          </p>
-        </div>
-      </div>
-      <div class="col-span-4 md:col-span-2 text-center">
-        <div class="card bg-white px-2 py-2">
-          <img
-            src="https://avatars.githubusercontent.com/u/20771653?v=4"
-            alt=""
-            class="w-16 rounded-full mx-auto"
-          />
-          <h2 class="font-bold text-lg">Jonathan Martz</h2>
-          <p class="text-sm">
-            Türsteher Jonathan lässt nur ordentliche Leute rein
-          </p>
-        </div>
-      </div>
-      <div class="col-span-4 md:col-span-2 text-center">
-        <div class="card bg-white px-2 py-2">
-          <img
-            src="https://avatars.githubusercontent.com/u/20771653?v=4"
-            alt=""
-            class="w-16 rounded-full mx-auto"
-          />
-          <h2 class="font-bold text-lg">Jonathan Martz</h2>
-          <p class="text-sm">
-            Türsteher Jonathan lässt nur ordentliche Leute rein
+            {{ member.attributes.desc }}
           </p>
         </div>
       </div>
@@ -90,10 +54,7 @@
       <div class="col-span-12 md:col-span-5">
         <h2 class="text-xl font-bold mb-2">Events</h2>
         <div class="flyer">
-          <img
-            :src="images[4]"
-            alt=""
-          />
+          <img :src="images[4]" alt="" />
         </div>
       </div>
       <div class="col-span-12 md:col-span-7">
@@ -105,7 +66,9 @@
                 v-for="(image, index) in gallery[2]"
                 class="card px-2 py-2 bg-white border border-black mt-2"
               >
-                <img :src="images[image]" alt="" />
+                <router-link :to="'/gallery/view/' + image">
+                  <img :src="images[image]" alt=""
+                /></router-link>
               </div>
             </div>
             <div class="col-span-6 md:col-span-3">
@@ -113,7 +76,9 @@
                 v-for="(image, index) in gallery[1]"
                 class="card px-2 py-2 bg-white border border-black mt-2"
               >
-                <img :src="images[image]" alt="" />
+                <router-link :to="'/gallery/view/' + image">
+                  <img :src="images[image]" alt=""
+                /></router-link>
               </div>
             </div>
           </div>
@@ -133,12 +98,13 @@ export default {
       event: 4,
       gallery: {
         1: [1, 2, 3],
-        2: [1, 2, 3],
+        2: [7, 5],
       },
+      members: [],
     };
   },
   mounted() {
-    this.getMediaById(4);
+    this.getMediaById(this.event);
     for (let i = 0; i < this.gallery[1].length; i++) {
       console.log(i);
       this.getMediaById(this.gallery[1][i]);
@@ -146,10 +112,21 @@ export default {
     for (let i = 0; i < this.gallery[2].length; i++) {
       this.getMediaById(this.gallery[2][i]);
     }
+    this.loadMembers();
   },
   methods: {
     gotoGallery: function () {
       this.$router.push("/gallery");
+    },
+    loadMembers: function () {
+      const that = this;
+      fetch("https://members.come-in.rocks/api/members?populate=media")
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          this.members = json.data;
+        });
     },
     getMediaById(id) {
       const that = this;
